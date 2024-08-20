@@ -1,0 +1,32 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: code-submission-service
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/submission_db
+    username: postgres
+    password: postgres
+
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+    enabled: true
+
+  data:
+    r2dbc:
+      repositories:
+        enabled: true
+
+  springdoc:
+    api-docs:
+      path: /v3/api-docs
+    swagger-ui:
+      path: /swagger-ui.html
+      enabled: true
+
+logging:
+  level:
+    liquibase: DEBUG
+
+
